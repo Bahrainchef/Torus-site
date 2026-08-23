@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TORUS — Shop the range</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<style>
+    :root{
+      --ink:#141210; --warm:#FFF6EA; --paper:#FFFFFF; --stone:#8C8378; --accent:#C0562B;
+      --cb:#6B4A32; --mg:#F5A310; --sb:#D62839; --pf:#E86A1C; --gp:#5E3A9E;
+      --co:#47281A; --rl:#C93A6E; --pn:#F58A5B; --wm:#F0566B; --line:#EFE6D7;
+      --blue:#249BDB; --sky:#E4F3FC; --pink:#FF5C8A; --yellow:#FFC531;
+      --mint:#2FBE93; --purple:#6C4BD8; --coral:#FF7A3D;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--sky);color:var(--ink);
+      font-family:'Inter',system-ui,sans-serif;font-weight:500;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1220px;margin:0 auto;padding:0 56px}
+    .dp{font-family:'Space Grotesk',system-ui,sans-serif}
+    .jt{font-family:'Jost',sans-serif}
+    h1,h2,h3{margin:0;font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.02}
+    p{margin:0}
+    .eyebrow{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+
+    /* mark */
+    .mark{border:1.6px solid currentColor;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+    .mark span{font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.18em;line-height:1;padding-left:.18em}
+    .mark.m50{width:50px;height:50px}.mark.m50 span{font-size:11px}
+
+    /* buttons + stickers */
+    .btn{display:inline-flex;align-items:center;gap:9px;background:var(--sb);color:#fff;border:2.5px solid var(--ink);
+      border-radius:100px;padding:15px 30px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px;
+      box-shadow:4px 4px 0 var(--ink);transition:transform .18s ease,box-shadow .18s ease;cursor:pointer}
+    .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+    .btn.ink{background:var(--ink)}.btn.mg{background:var(--mg);color:var(--ink)}.btn.gp{background:var(--gp);color:#fff}
+    .btn.sm{padding:11px 22px;font-size:13px;box-shadow:3px 3px 0 var(--ink)}
+    .btn.wt{background:#fff;color:var(--ink)}
+    .sticker{display:inline-flex;align-items:center;gap:7px;background:#fff;border:2.5px solid var(--ink);border-radius:100px;
+      padding:8px 15px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12.5px;box-shadow:3px 3px 0 var(--ink)}
+    .sticker.mg{background:var(--mg)}.sticker.wm{background:var(--wm);color:#fff}.sticker.gp{background:var(--gp);color:#fff}
+    .sticker.sb{background:var(--sb);color:#fff}
+
+    /* motion */
+    @keyframes bob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-18px) rotate(1.5deg)}}
+    @keyframes bob2{0%,100%{transform:translateY(0) rotate(2deg)}50%{transform:translateY(-13px) rotate(-2deg)}}
+    @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+    @keyframes wob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(3deg)}}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes pop{from{opacity:0;transform:scale(.8) translateY(16px)}to{opacity:1;transform:none}}
+    @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+    .bob{animation:bob 6s ease-in-out infinite}.bob2{animation:bob2 7s ease-in-out infinite}
+    .floaty{animation:floaty 5s ease-in-out infinite}.wob{animation:wob 4s ease-in-out infinite}
+    .pop{animation:pop .7s cubic-bezier(.2,1.3,.4,1) both}
+    @media (prefers-reduced-motion:reduce){.bob,.bob2,.floaty,.wob,.spin,.pop,.marq-track,.swirl{animation:none !important}}
+
+    /* top bar */
+    .topbar{background:var(--ink);color:var(--warm);overflow:hidden;padding:10px 0}
+    .topbar .marq-track{display:flex;white-space:nowrap;animation:marq 30s linear infinite;width:max-content}
+    .topbar .mi{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.08em;padding:0 22px}
+    .topbar .mi i{color:var(--mg);font-style:normal}
+
+    /* nav */
+    .nav{position:sticky;top:0;z-index:40;background:rgba(255,246,234,.9);backdrop-filter:blur(12px);border-bottom:2px solid var(--ink)}
+    .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+    .nav-links{display:flex;gap:30px;align-items:center}
+    .nav-links a{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:14px}
+    .nav-links a:hover{color:var(--accent)}
+
+    /* hero */
+    .hero{position:relative;overflow:hidden;background:var(--blue);color:#fff;border-bottom:3px solid var(--ink)}
+    .swirl{position:absolute;width:760px;height:760px;border-radius:50%;top:-40px;right:-140px;z-index:0;opacity:.5;
+      background:repeating-conic-gradient(from 0deg, var(--mg) 0deg 18deg, var(--wm) 18deg 36deg);
+      filter:blur(2px);mask:radial-gradient(circle, transparent 34%, #000 35%);-webkit-mask:radial-gradient(circle, transparent 34%, #000 35%);
+      animation:spin 60s linear infinite}
+    .hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:30px;align-items:center;padding:70px 0 84px;position:relative;z-index:3}
+    .hero h1{font-size:78px;font-weight:700;letter-spacing:-.02em;color:#fff}
+    .hero h1 .hl{color:var(--yellow)}
+    .hero .lede{margin-top:22px;font-size:18px;line-height:1.55;color:rgba(255,255,255,.94);max-width:440px;font-weight:600}
+    .hero-rev{color:#fff}
+    .hero-badges{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+    .hero-cta{display:flex;align-items:center;gap:18px;margin-top:30px;flex-wrap:wrap}
+    .hero-rev{display:flex;align-items:center;gap:10px;margin-top:22px;font-weight:700;font-size:14px}
+    .hero-rev .st{display:flex;gap:2px}.hero-rev .st svg{width:16px;height:16px;fill:var(--mg)}
+    .hero-stage{position:relative;height:520px;display:grid;place-items:center}
+    .fruit{position:absolute;z-index:4}
+    .fruit svg{display:block;filter:drop-shadow(3px 4px 0 rgba(20,18,16,.14))}
+    .f1{top:8px;left:0}.f2{bottom:36px;left:20px}.f3{top:22px;right:8px}.f4{bottom:8px;right:60px}
+
+    /* pack */
+    .pack{width:236px;aspect-ratio:236/338;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;
+      color:#fff;position:relative;border:3px solid var(--ink);box-shadow:8px 10px 0 rgba(20,18,16,.16);
+      transition:transform .4s cubic-bezier(.2,1.2,.4,1),box-shadow .4s ease}
+    .pack:hover{transform:translateY(-10px) rotate(-2deg);box-shadow:12px 16px 0 rgba(20,18,16,.2)}
+    .pack-hero{width:300px;transition:background 1s ease;z-index:5}
+    .pack-top{padding:14px 0 0;text-align:center}
+    .pack-sticks{font-family:'Jost',sans-serif;font-size:9px;letter-spacing:.24em;opacity:.85}
+    .pack-hr{width:32px;height:2px;background:rgba(255,255,255,.55);margin:8px auto 0;border-radius:2px}
+    .pack-mid{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:6px 14px 0}
+    .pack-ring{width:66px;height:66px;border:1.6px solid rgba(255,255,255,.9);border-radius:50%;display:grid;place-items:center;
+      font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;padding-left:.18em}
+    .pack-hero .pack-ring{width:80px;height:80px;font-size:14px}
+    .pack-line{margin-top:14px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:9px;letter-spacing:.16em;text-transform:uppercase;opacity:.9}
+    .pack-name{margin-top:6px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:24px;line-height:1.02;text-align:center}
+    .pack-hero .pack-name{font-size:31px}
+    .pack-ink{background:var(--ink);text-align:center;padding:13px 10px 15px}
+    .pack-g{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:27px;line-height:1}.pack-g u{text-decoration:none;font-size:15px}
+    .pack-cap{display:block;margin-top:2px;font-family:'Jost',sans-serif;font-size:8px;letter-spacing:.2em;opacity:.8}
+
+    /* benefit band */
+    .bene{background:var(--purple);color:#fff;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+    .bene-in{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:44px 0}
+    .bcol{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+    .bcol svg{width:40px;height:40px;stroke:#fff;stroke-width:1.6;fill:none}
+    .bcol h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:16px;letter-spacing:.02em;line-height:1.2}
+
+    /* sections */
+    .sec{padding:100px 0}
+    .sec-head{text-align:center;max-width:660px;margin:0 auto}
+    .sec-head h2{font-size:50px;font-weight:700;letter-spacing:-.02em;margin-top:14px}
+    .sec-head p{margin-top:16px;font-size:17px;line-height:1.55;color:#5b5248;font-weight:600}
+
+    /* range */
+    .line-block{margin-top:56px}
+    .line-tag{display:flex;justify-content:center;margin-bottom:30px}
+    .packs-row{display:flex;gap:30px;justify-content:center;flex-wrap:wrap}
+    .pack-cell{display:flex;flex-direction:column;align-items:center;gap:14px}
+    .pack-cell .mn{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:17px}
+    .pack-cell .btn{margin-top:2px}
+
+    /* steps */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+    .step{background:var(--paper);border:3px solid var(--ink);border-radius:20px;padding:32px 28px;box-shadow:6px 8px 0 rgba(20,18,16,.12);position:relative}
+    .step .sn{width:52px;height:52px;border-radius:50%;display:grid;place-items:center;font-family:'Space Grotesk',sans-serif;font-weight:700;
+      font-size:22px;color:#fff;border:2.5px solid var(--ink)}
+    .step h3{font-size:26px;margin-top:20px;font-weight:600}
+    .step p{margin-top:10px;font-size:15px;line-height:1.55;color:#5b5248;font-weight:600}
+
+    /* inside */
+    .inside{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;margin-top:52px;align-items:center}
+    .sf{background:var(--paper);border:3px solid var(--ink);border-radius:20px;padding:28px 30px;box-shadow:6px 8px 0 rgba(20,18,16,.12)}
+    .sf .sfh{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:16px;letter-spacing:.02em;text-transform:uppercase}
+    .sf .sfs{font-size:13px;color:var(--stone);margin-top:2px;font-weight:600}
+    .sf table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:14px}
+    .sf td{padding:9px 0;border-bottom:2px solid var(--line);font-weight:600}
+    .sf td.v{text-align:right;font-family:'Space Grotesk',sans-serif}
+    .sf tr:first-child td{border-top:3px solid var(--ink)}
+    .sf tr.hi td{color:var(--sb)}
+    .sf .oi{font-size:12.5px;color:#5b5248;margin-top:14px;line-height:1.5;font-weight:600}
+    .ic h3{font-size:34px;font-weight:700}
+    .ic p{margin-top:14px;font-size:16px;line-height:1.55;color:#5b5248;font-weight:600;max-width:430px}
+    .badges{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+    .badge{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+    .badge .bi{width:60px;height:60px;border-radius:50%;background:var(--paper);border:2.5px solid var(--ink);display:grid;place-items:center;box-shadow:3px 3px 0 var(--ink)}
+    .badge svg{width:26px;height:26px;stroke:var(--ink);stroke-width:1.5;fill:none}
+    .badge .bt{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12px}
+    .cnote{font-size:11.5px;color:var(--stone);margin-top:18px;font-weight:600}
+
+    /* name band */
+    .name{background:var(--ink);color:var(--warm);position:relative;overflow:hidden}
+    .name .swirl2{position:absolute;width:520px;height:520px;border-radius:50%;bottom:-160px;left:-120px;opacity:.16;
+      background:repeating-conic-gradient(from 0deg, var(--mg) 0deg 20deg, transparent 20deg 40deg);animation:spin 80s linear infinite}
+    .name .eyebrow{color:var(--mg)}
+    .name h2{font-size:50px;font-weight:700}
+    .name .lead{margin-top:16px;font-size:17px;line-height:1.55;color:#e8d9c4;font-weight:600;max-width:560px}
+    .meanings{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:52px}
+    .mean{background:rgba(255,255,255,.05);border:2px solid rgba(255,246,234,.16);border-radius:18px;padding:26px 24px}
+    .mean .mk{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mg)}
+    .mean h3{font-size:22px;margin-top:12px;font-weight:600}
+    .mean p{margin-top:10px;font-size:14px;line-height:1.55;color:#e8d9c4;font-weight:600}
+    .name-close{margin-top:44px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:30px;line-height:1.25;max-width:820px;position:relative;z-index:2}
+    .name-close b{color:var(--mg)}
+
+    /* reviews */
+    .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+    .rev{background:var(--paper);border:3px solid var(--ink);border-radius:20px;padding:30px 28px;display:flex;flex-direction:column;gap:16px;
+      box-shadow:6px 8px 0 rgba(20,18,16,.12);transition:transform .3s ease}
+    .rev:hover{transform:translateY(-6px) rotate(-1deg)}
+    .rev .st{display:flex;gap:3px}.rev .st svg{width:16px;height:16px;fill:var(--mg)}
+    .rev q{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:19px;line-height:1.35;quotes:none}
+    .rev .who{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:12.5px;color:var(--stone);text-transform:uppercase;letter-spacing:.04em;margin-top:auto}
+
+    /* big cta */
+    .cta{position:relative;overflow:hidden;background:var(--coral);color:#fff;border-top:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+    .cta-in h2,.cta-in p{color:#fff}
+    .cta-note{color:rgba(255,255,255,.85) !important}
+    .cta .swirl3{position:absolute;inset:-30% -10%;opacity:.22;background:repeating-conic-gradient(from 0deg, #fff 0deg 16deg, transparent 16deg 32deg);animation:spin 70s linear infinite}
+    .cta-in{position:relative;z-index:2;text-align:center;padding:96px 0}
+    .cta-in h2{font-size:60px;font-weight:700;letter-spacing:-.02em}
+    .cta-in p{margin:18px auto 0;font-size:18px;font-weight:700;max-width:480px}
+    .cta-note{margin-top:14px;font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:13px;color:#5b3d13}
+
+    /* faq */
+    .faq{max-width:860px;margin:52px auto 0}
+    .faq-row{background:var(--paper);border:3px solid var(--ink);border-radius:16px;padding:24px 28px;margin-bottom:16px;box-shadow:4px 5px 0 rgba(20,18,16,.1)}
+    .faq-q{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px}
+    .faq-a{font-size:15px;line-height:1.6;color:#5b5248;font-weight:600;margin-top:8px}
+
+    /* footer */
+    .foot{background:var(--ink);color:var(--warm)}
+    .foot-in{padding:70px 0 40px}
+    .foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+    .foot .tag{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:18px;margin-top:20px;color:#e8d9c4;max-width:280px;line-height:1.35}
+    .foot h4{font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mg);margin:0 0 16px;font-weight:600}
+    .foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+    .foot ul a{font-size:14.5px;color:#e8d9c4;font-weight:600}.foot ul a:hover{color:#fff}
+    .socials{display:flex;gap:12px;margin-top:22px}
+    .socials a{width:40px;height:40px;border:2px solid rgba(255,246,234,.3);border-radius:50%;display:grid;place-items:center}
+    .socials svg{width:18px;height:18px;stroke:var(--warm);stroke-width:1.6;fill:none}
+    .foot-bottom{display:flex;justify-content:space-between;margin-top:56px;padding-top:24px;border-top:2px solid rgba(255,246,234,.16);
+      font-family:'Space Grotesk',sans-serif;font-size:12px;color:#b9ab97;font-weight:500}
+
+    /* playful colour blocks — now with depth (gradients) */
+    .bg-blue{background:radial-gradient(130% 120% at 18% -10%, #4FB9F0 0%, #229AD9 52%, #1179BA 100%);color:#fff}
+    .bg-pink{background:radial-gradient(130% 120% at 82% -10%, #FF83AC 0%, #FF4E82 58%, #EE3A70 100%);color:#fff}
+    .bg-yellow{background:radial-gradient(130% 120% at 50% -12%, #FFDD79 0%, #FFC531 55%, #F3AE1B 100%);color:var(--ink)}
+    .bg-mint{background:radial-gradient(130% 120% at 26% -10%, #4FD7AC 0%, #2FBE93 58%, #21A47C 100%);color:#fff}
+    .bg-purple{background:radial-gradient(130% 120% at 74% -10%, #8B71EC 0%, #6C4BD8 58%, #593AC2 100%);color:#fff}
+    .bg-coral{background:radial-gradient(130% 120% at 50% -10%, #FF9C63 0%, #FF7A3D 56%, #F1611F 100%);color:#fff}
+    .bg-sky{background:linear-gradient(180deg,#EFF9FE 0%, #DBEEFA 100%);color:var(--ink)}
+    .bg-white{background:var(--paper);color:var(--ink)}
+    .bg-ink{background:radial-gradient(120% 150% at 80% -10%, #262019 0%, #141210 60%);color:var(--warm)}
+    .bg-blue,.bg-pink,.bg-yellow,.bg-mint,.bg-purple,.bg-coral,.bg-sky,.bg-white,.bg-ink{border-top:3px solid var(--ink);border-bottom:3px solid var(--ink);position:relative;overflow:hidden}
+    .bg-blue .sec-head p,.bg-pink .sec-head p,.bg-mint .sec-head p,.bg-purple .sec-head p,.bg-coral .sec-head p{color:#fff;opacity:.92}
+    .bg-yellow .sec-head p,.bg-sky .sec-head p,.bg-white .sec-head p{color:#5b5248}
+    .bg-blue .eyebrow,.bg-pink .eyebrow,.bg-mint .eyebrow,.bg-purple .eyebrow,.bg-coral .eyebrow,.bg-ink .eyebrow{color:#fff;opacity:.82}
+    .hero .eyebrow{color:#fff;opacity:.85}
+    .sec .wrap,.subhero .wrap,.bene .wrap{position:relative;z-index:2}
+
+    /* depth: decorative helpers */
+    .dotgrid{position:absolute;inset:0;background-image:radial-gradient(currentColor 1.4px, transparent 1.5px);background-size:26px 26px;opacity:.10;pointer-events:none;z-index:0}
+    .glow{position:absolute;border-radius:50%;filter:blur(72px);pointer-events:none;z-index:0}
+    .grain::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+      background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="140" height="140" filter="url(%23n)"/></svg>')}
+
+    /* depth: glossy product */
+    .pack{box-shadow:8px 12px 0 rgba(20,18,16,.16), 0 26px 46px -22px rgba(0,0,0,.5)}
+    .pack::after{content:"";position:absolute;inset:0;border-radius:9px;pointer-events:none;
+      background:linear-gradient(142deg, rgba(255,255,255,.34) 0%, rgba(255,255,255,.08) 30%, rgba(255,255,255,0) 46%), linear-gradient(0deg, rgba(0,0,0,.16), rgba(0,0,0,0) 26%)}
+
+    /* photo slot */
+    .photo{position:relative;border:3px solid var(--ink);border-radius:22px;overflow:hidden;box-shadow:8px 10px 0 rgba(20,18,16,.18);
+      background:linear-gradient(135deg,#cfe9f8,#9fd3f0)}
+    .photo .plabel{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px}
+    .photo .plabel span{font-family:'Space Grotesk';font-weight:600;color:rgba(20,18,16,.6);font-size:13.5px;border:2px dashed rgba(20,18,16,.4);
+      border-radius:100px;padding:9px 18px;background:rgba(255,255,255,.55)}
+
+    /* kinetic word */
+    .kw{position:absolute;font-family:'Space Grotesk';font-weight:700;letter-spacing:-.03em;color:transparent;
+      -webkit-text-stroke:2px rgba(255,255,255,.20);pointer-events:none;z-index:1;line-height:.8;white-space:nowrap}
+    .scrollcue{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:'Space Grotesk';font-weight:600;font-size:11px;
+      letter-spacing:.24em;color:rgba(255,255,255,.85);z-index:3;animation:floaty 2.6s ease-in-out infinite}
+
+    /* subhero (shared across pages) */
+    .subhero{position:relative;overflow:hidden;text-align:center;padding:74px 0 44px}
+    .subhero h1{font-size:64px;font-weight:700;letter-spacing:-.02em}
+    .subhero p{margin:16px auto 0;font-size:18px;font-weight:600;max-width:540px;color:inherit;opacity:.86}
+    .subhero .eyebrow{color:inherit;opacity:.82}
+    .subhero .filters{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+    /* illustrated product scene (photo-slot filler) */
+    .scene{display:grid;place-items:center;background:radial-gradient(120% 120% at 30% 18%, #38B2EA 0%, #2A7FD6 52%, #6C4BD8 100%)}
+    .scene-burst{position:absolute;inset:-25%;background:repeating-conic-gradient(from 0deg, rgba(255,255,255,.15) 0 9deg, transparent 9deg 18deg);animation:spin 80s linear infinite;pointer-events:none;z-index:0}
+    .scene-glow{position:absolute;width:340px;height:340px;border-radius:50%;background:#fff;opacity:.18;filter:blur(52px);z-index:0}
+    .scene .fruit{filter:drop-shadow(2px 3px 0 rgba(20,18,16,.2))}
+    .spark{position:absolute;z-index:3;pointer-events:none;filter:drop-shadow(1px 1px 0 rgba(20,18,16,.18));animation:floaty 4s ease-in-out infinite}
+    .scene-note{position:absolute;bottom:10px;left:0;right:0;text-align:center;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.05em;color:rgba(255,255,255,.85);z-index:6}
+    /* scroll reveals (JS-gated so content is never stuck hidden) */
+    .reveal{opacity:1}
+    @media (prefers-reduced-motion:no-preference){
+      html.rvl .reveal{opacity:0;transform:translateY(30px);transition:opacity .75s cubic-bezier(.2,.7,.2,1), transform .75s cubic-bezier(.2,.7,.2,1)}
+      html.rvl .reveal.in{opacity:1;transform:none}
+    }
+  
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:34px 30px;margin-top:16px}
+    .card{display:flex;flex-direction:column;align-items:center;gap:14px;background:var(--paper);border:3px solid var(--ink);border-radius:22px;padding:30px 24px 26px;box-shadow:6px 8px 0 rgba(20,18,16,.12)}
+    .card .cn{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:20px;margin-top:4px}
+    .card .cl{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:11px;letter-spacing:.14em;color:var(--stone);text-transform:uppercase}
+    .card .cr{display:flex;gap:2px}.card .cr svg{width:14px;height:14px;fill:var(--mg)}
+    .card .cp{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px}
+    .bundle{margin:70px 0 0}
+    .bundle-card{background:var(--gp);color:#fff;border:3px solid var(--ink);border-radius:24px;padding:56px 48px;text-align:center;box-shadow:8px 10px 0 rgba(20,18,16,.16);position:relative;overflow:hidden}
+    .bundle-card h2{font-size:44px;font-weight:700}
+    .bundle-card p{margin:14px auto 0;font-size:17px;font-weight:600;max-width:520px}
+  </style>
+<style>
+.nav-links a.on{color:var(--accent)}
+html{scroll-behavior:smooth}
+img,svg{max-width:100%}
+@media (max-width:1000px){
+  .wrap{padding:0 30px}
+  .hero-grid{grid-template-columns:1fr;gap:12px;padding:56px 0 70px}
+  .hero h1{font-size:54px}
+  .hero-stage{height:420px}
+  .kw{font-size:140px}
+  .bene-in{grid-template-columns:repeat(2,1fr);gap:30px}
+  .sec-head h2{font-size:38px}
+  .steps,.rev-grid,.rev-grid6,.grid3,.stats3,.ev,.inside,.pdp,.con,.meanings,.foot-top,.principle,.loop{grid-template-columns:1fr}
+  .benefits,.badges,.facts{grid-template-columns:repeat(2,1fr)}
+  .cta-card{grid-template-columns:1fr}
+  .cta-art{min-height:300px}
+  .faq-row{grid-template-columns:1fr;gap:6px}
+  .sec{padding:72px 0}
+}
+@media (max-width:640px){
+  .wrap{padding:0 20px}
+  .nav-links a:not(.btn){display:none}
+  .nav-links{gap:14px}
+  .hero h1{font-size:38px}
+  .sec-head h2{font-size:28px}
+  .packs-row{flex-direction:column;align-items:center}
+  .benefits,.badges,.facts,.bene-in{grid-template-columns:1fr}
+  .cta-in h2{font-size:40px}
+  .pack{width:210px}
+}
+</style>
+</head>
+<body>
+
+<div id="top">
+
+<div class="topbar"><div class="marq-track">
+    <span class="mi">RIP · POUR · ENJOY<i> ✦ </i></span><span class="mi">5G CREATINE IN EVERY STICK<i> ✦ </i></span><span class="mi">NO SCOOP · NO SHAKER<i> ✦ </i></span><span class="mi">9 FLAVOURS<i> ✦ </i></span><span class="mi">FREE SHIPPING OVER [AMOUNT]<i> ✦ </i></span>
+    <span class="mi">RIP · POUR · ENJOY<i> ✦ </i></span><span class="mi">5G CREATINE IN EVERY STICK<i> ✦ </i></span><span class="mi">NO SCOOP · NO SHAKER<i> ✦ </i></span><span class="mi">9 FLAVOURS<i> ✦ </i></span><span class="mi">FREE SHIPPING OVER [AMOUNT]<i> ✦ </i></span>
+  </div></div>
+  <div class="nav"><div class="wrap nav-in">
+    <a href="index.html" class="mark m50"><span>TORUS</span></a>
+    <div class="nav-links"><a href="shop.html" style="color:var(--accent)">Shop</a><a href="name.html">The Name</a><a href="science.html">Science</a><a href="reviews.html">Reviews</a><a href="reviews.html#faq">FAQ</a><a href="shop.html" class="btn sm">Shop now</a></div>
+  </div></div>
+<div class="subhero bg-blue">
+  <div class="dotgrid"></div><div class="glow" style="width:400px;height:400px;background:#8AD6F7;opacity:.16;top:-130px;right:-70px"></div>
+  <div class="wrap">
+    <div class="eyebrow">The shop</div>
+    <h1>Pick your flavours.</h1>
+    <p>Every pack is fifteen sticks and the same clinical 5g of creatine. Choose one you'll look forward to — or grab a few.</p>
+    <div class="filters">
+      <span class="sticker sb">All 9</span><span class="sticker">All-in-1</span><span class="sticker">Fizz</span><span class="sticker">Women's</span><span class="sticker mg">Best sellers</span>
+    </div>
+  </div>
+</div>
+<section class="sec" style="padding-top:40px">
+  <div class="wrap">
+    <div class="grid3">
+      <div class="card">
+  <div class="pack wob" style="background:#6B4A32">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">ALL-IN-1</div><div class="pack-name">Cold Brew</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div>
+  <div class="cl">ALL-IN-1</div>
+  <div class="cn">Cold Brew</div>
+  <div class="cr"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+  <div class="cp">[PRICE]</div>
+  <a href="shop.html" class="btn sm">Add to box</a>
+</div>
+      <div class="card">
+  <div class="pack wob" style="background:#F5A310">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">ALL-IN-1</div><div class="pack-name">Tropical Mango</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div>
+  <div class="cl">ALL-IN-1</div>
+  <div class="cn">Tropical Mango</div>
+  <div class="cr"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+  <div class="cp">[PRICE]</div>
+  <a href="shop.html" class="btn sm">Add to box</a>
+</div>
+      <div class="card">
+  <div class="pack wob" style="background:#D62839">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">ALL-IN-1</div><div class="pack-name">Strawberry</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div>
+  <div class="cl">ALL-IN-1</div>
+  <div class="cn">Strawberry</div>
+  <div class="cr"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+  <div class="cp">[PRICE]</div>
+  <a href="shop.html" class="btn sm">Add to box</a>
+</div>
+      <div class="card">
+  <div class="pack wob" style="background:#E86A1C">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">FIZZ</div><div class="pack-name">Passionfruit Crush</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div>
+  <div class="cl">FIZZ</div>
+  <div class="cn">Passionfruit Crush</div>
+  <div class="cr"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+  <div class="cp">[PRICE]</div>
+  <a href="shop.html" class="btn sm">Add to box</a>
+</div>
+      <div class="card">
+  <div class="pack wob" style="background:#5E3A9E">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">FIZZ</div><div class="pack-name">Grape</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div>
+  <div class="cl">FIZZ</div>
+  <div class="cn">Grape</div>
+  <div class="cr"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+  <div class="cp">[PRICE]</div>
+  <a href="shop.html" class="btn sm">Add to box</a>
+</div>
+      <div class="card">
+  <div class="pack wob" style="background:#47281A">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">FIZZ</div><div class="pack-name">Cola</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div>
+  <div class="cl">FIZZ</div>
+  <div class="cn">Cola</div>
+  <div class="cr"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+  <div class="cp">[PRICE]</div>
+  <a href="shop.html" class="btn sm">Add to box</a>
+</div>
+      <div class="card">
+  <div class="pack wob" style="background:#C93A6E">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">WOMEN'S</div><div class="pack-name">Raspberry Lemonade</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div>
+  <div class="cl">WOMEN'S</div>
+  <div class="cn">Raspberry Lemonade</div>
+  <div class="cr"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+  <div class="cp">[PRICE]</div>
+  <a href="shop.html" class="btn sm">Add to box</a>
+</div>
+      <div class="card">
+  <div class="pack wob" style="background:#F58A5B">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">WOMEN'S</div><div class="pack-name">Peach Nectar</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div>
+  <div class="cl">WOMEN'S</div>
+  <div class="cn">Peach Nectar</div>
+  <div class="cr"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+  <div class="cp">[PRICE]</div>
+  <a href="shop.html" class="btn sm">Add to box</a>
+</div>
+      <div class="card">
+  <div class="pack wob" style="background:#F0566B">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">WOMEN'S</div><div class="pack-name">Watermelon</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div>
+  <div class="cl">WOMEN'S</div>
+  <div class="cn">Watermelon</div>
+  <div class="cr"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div>
+  <div class="cp">[PRICE]</div>
+  <a href="shop.html" class="btn sm">Add to box</a>
+</div>
+    </div>
+    <div class="bundle"><div class="bundle-card">
+      <div class="swirl2" style="position:absolute;width:420px;height:420px;border-radius:50%;top:-140px;right:-120px;opacity:.16;background:repeating-conic-gradient(from 0deg, #fff 0deg 18deg, transparent 18deg 36deg);animation:spin 70s linear infinite"></div>
+      <div style="position:relative;z-index:2">
+        <h2>Build your own box.</h2>
+        <p>Mix any fifteen sticks across all three lines, subscribe, and never run out. Pause or cancel any time.</p>
+        <div style="margin-top:26px"><a href="shop.html" class="btn mg">Start a box · [PRICE]</a></div>
+      </div>
+    </div></div>
+  </div>
+</section>
+<section class="sec bg-blue">
+  <div class="dotgrid"></div>
+  <div class="wrap" style="display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center">
+    <div class="photo scene" style="height:440px">
+  <div class="scene-burst"></div><div class="scene-glow"></div>
+  <div class="fruit" style="top:26px;left:28px"><svg width="54" height="54" viewBox="0 0 64 64"><path d="M32 12c-3-6-11-7-15-3 8 1 10 6 10 6z" fill="#4CA85B" stroke="#141210" stroke-width="2"/><path d="M20 20c0-5 6-8 12-8s12 3 12 8c0 12-7 30-12 30S20 32 20 20z" fill="#D62839" stroke="#141210" stroke-width="2"/><g fill="#FFF6EA"><circle cx="27" cy="26" r="1.4"/><circle cx="35" cy="24" r="1.4"/><circle cx="31" cy="32" r="1.4"/><circle cx="37" cy="33" r="1.4"/><circle cx="27" cy="38" r="1.4"/></g></svg></div>
+  <div class="fruit" style="bottom:30px;left:34px"><svg width="48" height="48" viewBox="0 0 64 64"><circle cx="32" cy="32" r="26" fill="#F5A310" stroke="#141210" stroke-width="2"/><circle cx="32" cy="32" r="20" fill="#FFC24D"/><g stroke="#F5A310" stroke-width="2"><path d="M32 12v40M12 32h40M18 18l28 28M46 18 18 46"/></g></svg></div>
+  <div class="fruit" style="top:44px;right:32px"><svg width="44" height="44" viewBox="0 0 64 64"><g fill="#5E3A9E" stroke="#141210" stroke-width="2"><circle cx="24" cy="30" r="8"/><circle cx="40" cy="30" r="8"/><circle cx="32" cy="42" r="8"/><circle cx="20" cy="44" r="8"/><circle cx="44" cy="44" r="8"/><circle cx="32" cy="54" r="8"/></g><path d="M32 22c0-6 4-10 9-11" fill="none" stroke="#4CA85B" stroke-width="3" stroke-linecap="round"/></svg></div>
+  <svg class="spark" width="30" height="30" style="top:112px;right:78px" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#fff"/></svg>
+  <svg class="spark" width="16" height="16" style="bottom:120px;right:54px;animation-delay:1s" viewBox="0 0 24 24"><path d="M12 0l2.6 9.4L24 12l-9.4 2.6L12 24l-2.6-9.4L0 12l9.4-2.6z" fill="#fff"/></svg>
+  <div style="transform:rotate(-9deg);z-index:4"><div class="pack " style="background:#F0566B">
+  <div class="pack-top"><div class="pack-sticks">15 STICKS</div><div class="pack-hr"></div></div>
+  <div class="pack-mid"><div class="pack-ring jt">TORUS</div><div class="pack-line">WOMEN'S</div><div class="pack-name">Watermelon</div></div>
+  <div class="pack-ink"><div class="pack-g">5<u>g</u></div><div class="pack-cap">CREATINE PER STICK</div></div>
+</div></div>
+  <span class="sticker wm" style="position:absolute;top:20px;right:22px;z-index:6;transform:rotate(5deg)">Rip · pour · enjoy</span>
+  <div class="scene-note">Illustration placeholder — drop in your photo</div>
+</div>
+    <div>
+      <div class="eyebrow">In the wild</div>
+      <h2 style="font-size:44px;font-weight:700;margin-top:12px">Looks good on every desk.</h2>
+      <p style="margin-top:14px;font-size:16px;line-height:1.55;opacity:.92;max-width:420px">Pocket-sized packs that travel from gym bag to kitchen counter — and look the part while they do it. Your own lifestyle shots drop straight in here.</p>
+      <div style="margin-top:24px"><a href="shop.html" class="btn wt">Build your box</a></div>
+    </div>
+  </div>
+</section>
+<footer class="foot"><div class="wrap foot-in">
+  <div class="foot-top">
+    <div>
+      <div class="mark m50" style="color:var(--warm)"><span>TORUS</span></div>
+      <div class="tag">A closed loop — and creatine only works if you never break it.</div>
+      <div class="socials">
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--warm)" stroke="none"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M9 3v11.5a3.5 3.5 0 1 1-3-3.46"/><path d="M9 3c.5 3 2.5 4.5 5 4.7"/></svg></a>
+      </div>
+    </div>
+    <div><h4>Shop</h4><ul><li><a href="#">All-in-1</a></li><li><a href="#">Fizz</a></li><li><a href="#">Women's</a></li><li><a href="#">Build a box</a></li></ul></div>
+    <div><h4>Learn</h4><ul><li><a href="#">The name</a></li><li><a href="#">The science</a></li><li><a href="#">FAQ</a></li><li><a href="#">Reviews</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Wholesale</a></li><li><a href="#">Stockists</a></li></ul></div>
+  </div>
+  <div class="foot-bottom"><div>© 2026 TORUS. All rights reserved.</div><div>Creatine monohydrate · 5g per stick · [Add legal / dietary disclaimer]</div></div>
+</div></footer>
+</div>
+
+<script>
+function setupReveals(){try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.documentElement.classList.add('rvl');var sel='.sec-head,.step,.rev,.card,.pack-cell,.bcol,.statcard,.faq-row,.badge,.mean,.fact,.sf,.ic,.buy,.cta-in,.photo,.stat,.ben,.line-head,.pdp-media';var els=[].slice.call(document.querySelectorAll(sel));els.forEach(function(el){var p=el.parentElement;var i=p?[].indexOf.call(p.children,el):0;el.style.transitionDelay=Math.min(i*0.05,0.3)+'s';el.classList.add('reveal');});if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add('in');io.unobserve(t);setTimeout(function(){t.style.transitionDelay='';},900);}});},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});els.forEach(function(el){io.observe(el);});}catch(err){}}
+
+document.addEventListener('DOMContentLoaded',function(){ setupReveals(); if(typeof heroInit==='function') heroInit(); });
+</script>
+</body>
+</html>

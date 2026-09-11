@@ -153,6 +153,8 @@ p{margin:0}
 .sf td.v{text-align:right;font-family:'Jost',sans-serif;white-space:nowrap;padding-left:14px}
 .sf td.hd{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
 .sf td.sub{padding-left:16px;color:var(--muted)}
+.sf .ah{font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:20px 0 2px}
+.sf td .sub2{color:var(--muted);font-size:12px}
 .sf tr:first-child td{border-top:2px solid var(--ink)}
 .sf tr.hi td{color:var(--accent);font-weight:600}
 .sf .oi{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.55}
@@ -188,8 +190,9 @@ p{margin:0}
 .rev .who{font-family:'Jost',sans-serif;font-weight:500;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:auto}
 
 /* big cta */
-.cta{position:relative;overflow:hidden;background:linear-gradient(rgba(226,72,47,.50),rgba(178,42,18,.62)),url(photos/flag-tower.jpg) center 64%/cover;color:#fff}
-.cta-in{position:relative;z-index:2;text-align:center;padding:96px 0}
+.cta{position:relative;overflow:hidden;min-height:560px;display:grid;align-items:center;background:linear-gradient(rgba(11,15,23,.46),rgba(11,15,23,.5)),url(photos/flag-tower.jpg) center 56%/cover;color:#fff}
+.cta-in h2,.cta-in p,.cta-note{text-shadow:0 2px 26px rgba(0,0,0,.5)}
+.cta-in{position:relative;z-index:2;text-align:center;padding:130px 0}
 .cta-in h2{font-size:60px;font-weight:400;color:#fff}
 .cta-in p{margin:18px auto 0;font-size:18px;max-width:500px;color:#fff;opacity:.95}
 .cta-note{margin-top:16px;font-family:'Caveat',cursive;font-weight:600;font-size:22px;color:#fff}
@@ -337,7 +340,7 @@ img,svg{max-width:100%}
       <div class="hero-copy">
         <div class="eyebrow pop" style="animation-delay:.02s">Creatine, made easy</div>
         <h1 class="pop" style="animation-delay:.08s">Five grams<br>a day, <em>done.</em></h1>
-        <p class="lede pop" style="animation-delay:.16s">One stick, 5g of pure creatine monohydrate, fifteen to a pack. Nine flavours that make the daily habit the easy part.</p>
+        <p class="lede pop" style="animation-delay:.16s">One stick a day — 5g of creatine, plus collagen and daily vitamins in our all-in-1 line. Fifteen to a pack, nine flavours that make the habit the easy part.</p>
         <div class="hero-cta pop" style="animation-delay:.26s">
           <a href="shop.html" class="btn">Shop the range</a>
           <a href="name.html" class="btn ghost">Why "Torus"?</a>
@@ -492,34 +495,41 @@ img,svg{max-width:100%}
   <!-- INSIDE -->
   <section class="sec bg-sky">
     <div class="wrap">
-      <div class="sec-head"><div class="eyebrow">What's inside</div><h2>Five grams of creatine. Not much else.</h2></div>
+      <div class="sec-head"><div class="eyebrow">What's inside</div><h2>5g of creatine — <em>plus what makes it work.</em></h2></div>
       <div class="inside">
         <div class="sf">
           <div class="sfh">Nutrition Information</div>
-          <div class="sfs">Servings per pack: [15] · Serving size: [~5.8 g] (1 stick)</div>
+          <div class="sfs">ALL-IN-1 shown · Servings per pack: [15] · Serving size: [~14 g] (1 stick)</div>
           <table>
             <tr><td></td><td class="v hd">Per serve</td><td class="v hd">Per 100 g</td></tr>
             <tr><td>Energy</td><td class="v">[X kJ]</td><td class="v">[X kJ]</td></tr>
-            <tr><td>Protein</td><td class="v">0 g</td><td class="v">0 g</td></tr>
+            <tr><td>Protein <span class="sub2">(collagen)</span></td><td class="v">[~5 g]</td><td class="v">[X g]</td></tr>
             <tr><td>Fat, total</td><td class="v">0 g</td><td class="v">0 g</td></tr>
             <tr><td class="sub">– saturated</td><td class="v">0 g</td><td class="v">0 g</td></tr>
             <tr><td>Carbohydrate</td><td class="v">[X g]</td><td class="v">[X g]</td></tr>
             <tr><td class="sub">– sugars</td><td class="v">[X g]</td><td class="v">[X g]</td></tr>
-            <tr><td>Sodium</td><td class="v">[X mg]</td><td class="v">[X mg]</td></tr>
-            <tr class="hi"><td>Creatine monohydrate</td><td class="v">5 g</td><td class="v">[X g]</td></tr>
+            <tr><td>Sodium</td><td class="v">[~200 mg]</td><td class="v">[X mg]</td></tr>
           </table>
-          <div class="oi"><strong>Ingredients:</strong> [list yours — e.g. creatine monohydrate, natural flavour, food acid (citric), sweetener]. Formulated Supplementary Sports Food. Not suitable for children under 15 years of age or pregnant women; should only be used under medical or dietetic supervision. Sample panel — confirm all values against your finished formulation and AU (FSANZ) requirements.</div>
+          <div class="ah">Active ingredients — per stick</div>
+          <table>
+            <tr class="hi"><td>Creatine monohydrate</td><td class="v">5 g</td></tr>
+            <tr class="hi"><td>Marine collagen peptides</td><td class="v">5 g</td></tr>
+            <tr><td>Magnesium</td><td class="v">[100 mg]</td></tr>
+            <tr><td>Potassium</td><td class="v">[230 mg]</td></tr>
+            <tr><td>Vitamins D3, K2, B12</td><td class="v">[per label]</td></tr>
+          </table>
+          <div class="oi"><strong>Ingredients:</strong> [list yours in descending order by weight]. Formulated Supplementary Sports Food. Contains fish (marine collagen). Not suitable for children under 15 years of age or pregnant women; should only be used under medical or dietetic supervision. Sample panel — Fizz and Women's lines differ; confirm all values against your finished formulation and AU (FSANZ) requirements.</div>
         </div>
         <div class="ic">
-          <h3>The label reads short on purpose.</h3>
-          <p>A single clinical 5g dose of creatine monohydrate, a flavour, and little else. No proprietary blends, no filler — just the good stuff, fifteen sticks a pack.</p>
+          <h3>Creatine, and the crew that backs it up.</h3>
+          <p>Every stick leads with a clinical 5g of creatine monohydrate. The <strong>All-in-1</strong> line adds marine collagen, magnesium, potassium and daily vitamins; the <strong>Women's</strong> line layers in hyaluronic acid, biotin and vitamin C. Prefer it simple? The <strong>Fizz</strong> line is a straight, sherbet-style creatine hit — no collagen, taken dry.</p>
           <div class="badges">
-            <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><path d="M11 20C6 20 4 15 4 11c5 0 7 3 7 7"/><path d="M12 20c0-7 4-12 8-13 0 6-2 13-8 13z"/></svg></div><div class="bt">Vegan</div></div>
+            <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><path d="M11 20C6 20 4 15 4 11c5 0 7 3 7 7"/><path d="M12 20c0-7 4-12 8-13 0 6-2 13-8 13z"/></svg></div><div class="bt">No synthetic colours</div></div>
             <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><path d="M8 3h6l-1 4c1 1 2 3 2 6a4 4 0 0 1-8 0c0-2 0-4 1-6z"/><path d="M4 4l16 16"/></svg></div><div class="bt">Dairy free</div></div>
             <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><path d="M12 3v10"/><path d="M12 7c-2-2-4-2-5-1 1 2 3 3 5 3M12 7c2-2 4-2 5-1-1 2-3 3-5 3"/><path d="M4 4l16 16"/></svg></div><div class="bt">Gluten free</div></div>
-            <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><path d="M12 4c4 3 4 13 0 16M12 4c-4 3-4 13 0 16M4 12c3-4 13-4 16 0M4 12c3 4 13 4 16 0"/></svg></div><div class="bt">Non-GMO</div></div>
+            <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div><div class="bt">Third-party tested</div></div>
           </div>
-          <div class="cnote">[Confirm dietary and allergen claims — these are placeholders.]</div>
+          <div class="cnote">[Confirm dietary and allergen claims — these are placeholders. Fizz line is collagen-free / suitable for vegans.]</div>
         </div>
       </div>
     </div>
@@ -573,7 +583,7 @@ img,svg{max-width:100%}
         <div class="faq-row"><div class="faq-q">Do I need a loading phase?</div><div class="faq-a">Nope. A steady 5g a day gets you there within a few weeks, no loading required — which is exactly how TORUS is built.</div></div>
         <div class="faq-row"><div class="faq-q">When should I take it?</div><div class="faq-a">Whenever you'll remember. Daily consistency beats timing, so hook it to something you already do — like your morning coffee.</div></div>
         <div class="faq-row"><div class="faq-q">Is it only for the gym?</div><div class="faq-a">No — the evidence covers strength and recovery, and research into focus and mental stamina is growing fast.</div></div>
-        <div class="faq-row"><div class="faq-q">Is it vegan and sugar-free?</div><div class="faq-a">[Confirm your formulation] — creatine monohydrate itself is vegan-friendly. Add your sweetener, allergen and dietary details here.</div></div>
+        <div class="faq-row"><div class="faq-q">Is it vegan and sugar-free?</div><div class="faq-a">The <strong>Fizz</strong> line is collagen-free and suitable for vegans. The <strong>All-in-1</strong> and <strong>Women's</strong> lines contain marine collagen (fish), so they're not vegan. All nine are sweetened with monk fruit — no added sugar. [Confirm final formulation and allergen details.]</div></div>
       </div>
     </div>
   </section>

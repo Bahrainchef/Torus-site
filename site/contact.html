@@ -15,6 +15,7 @@
   --yellow:#F2A20C; --mint:#3FB58A; --purple:#7A5BD8; --coral:#E2482F;
 }
 *{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
 body{margin:0;background:#FFFFFF;color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:1.5}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1200px;margin:0 auto;padding:0 clamp(24px,5vw,88px)}
@@ -284,8 +285,8 @@ p{margin:0}
     .form input,.form textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;font-family:'Inter';font-weight:600;font-size:15px;background:var(--warm)}
     .form textarea{min-height:120px;resize:vertical}
     .jeep-hero{position:relative;overflow:hidden;text-align:center;
-      background:linear-gradient(rgba(12,14,20,.52),rgba(12,14,20,.62)),url(photos/jeep.jpg) center 42%/cover}
-    .jeep-hero h1,.jeep-hero p,.jeep-hero .eyebrow{position:relative;z-index:2}
+      background:linear-gradient(rgba(255,255,255,.30),rgba(255,255,255,.42)),url(photos/jeep.jpg) center 42%/cover}
+    .jeep-hero h1,.jeep-hero p,.jeep-hero .eyebrow{position:relative;z-index:2;text-shadow:0 1px 12px rgba(255,255,255,.85),0 1px 3px rgba(255,255,255,.9)}
   </style>
 <style>
 .nav-links a.on{color:var(--accent)}
@@ -333,9 +334,9 @@ img,svg{max-width:100%}
   </div></div>
 <div class="subhero jeep-hero" style="padding:100px 0 88px">
   <div class="wrap">
-    <div class="eyebrow" style="color:#fff;opacity:.9">Say hello</div>
-    <h1 style="color:#fff">Let's talk.</h1>
-    <p style="color:#fff;opacity:.92">Questions about a flavour, an order, wholesale or press? We're quick to reply — usually within [one working day].</p>
+    <div class="eyebrow" style="color:var(--accent)">Say hello</div>
+    <h1 style="color:var(--ink)">Let's talk.</h1>
+    <p style="color:var(--ink)">Questions about a flavour, an order, wholesale or press? We're quick to reply — usually within [one working day].</p>
   </div>
 </div>
 <section class="sec" style="padding-top:40px">

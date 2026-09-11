@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TORUS Creatine — 5g per stick, 9 flavours</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,400..500&family=Jost:wght@300;400;500&family=Inter:wght@400;500;600&family=Caveat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1A1613; --cream:#FBF3EF; --paper:#FFFFFF; --muted:#6C6353; --soft:#EFE7D9;
+  --line:rgba(26,22,19,.10); --accent:#E2482F; --accent2:#F2A20C;
+  --cb:#5E4230; --mg:#ED9A0C; --sb:#C8253A; --pf:#E2620F; --gp:#55348F;
+  --co:#2E9BD8; --rl:#BE335F; --pn:#F0824E; --wm:#ED4A60;
+  --stone:#8C8378; --warm:#F7F1E6; --blue:#4A90C2; --sky:#EEF4FB; --pink:#E36B8A;
+  --yellow:#F2A20C; --mint:#3FB58A; --purple:#7A5BD8; --coral:#E2482F;
+}
+*{box-sizing:border-box}
+html,body{max-width:100%;overflow-x:hidden}
+body{margin:0;background:#FFFFFF;color:var(--ink);font-family:'Inter',system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 clamp(24px,5vw,88px)}
+h1,h2,h3{margin:0;font-family:'Fraunces',Georgia,serif;font-weight:400;line-height:1.02;letter-spacing:-.01em}
+h1 em,h2 em,.hero h1 em{font-style:italic;color:var(--accent)}
+p{margin:0}
+.dp{font-family:'Fraunces',serif}
+.jt{font-family:'Jost',sans-serif}
+.brand-word{font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.05em}
+.eyebrow{font-family:'Jost',sans-serif;font-weight:500;letter-spacing:.34em;text-transform:uppercase;font-size:12px;color:var(--accent)}
+.hand{font-family:'Caveat',cursive;font-weight:600;line-height:1;color:var(--ink)}
+.dood{display:inline-block;vertical-align:middle;color:var(--accent)}
+.dood.ul{display:block}
+
+/* logo mark */
+.mark{border:2px solid currentColor;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.mark span{font-family:'Jost',sans-serif;font-weight:400;letter-spacing:.2em;line-height:1;padding-left:.2em}
+.mark.m50{width:50px;height:50px}.mark.m50 span{font-size:11px}
+
+/* buttons + pills */
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--ink);color:var(--cream);border:0;border-radius:100px;
+  padding:15px 30px;font-family:'Jost',sans-serif;font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+  box-shadow:0 16px 30px -14px rgba(26,22,19,.55);transition:transform .2s ease,box-shadow .2s ease;cursor:pointer}
+.btn:hover{transform:translateY(-2px);box-shadow:0 22px 36px -14px rgba(26,22,19,.6)}
+.btn.accent{background:var(--accent);color:#fff}
+.btn.mg{background:var(--accent2);color:var(--ink)}
+.btn.gp,.btn.ink{background:var(--ink);color:var(--cream)}
+.btn.wt{background:#fff;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:none;opacity:.72;padding-left:8px}
+.btn.ghost:hover{opacity:1;transform:none;box-shadow:none}
+.btn.sm{padding:12px 22px;font-size:12px}
+.sticker{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid var(--line);border-radius:100px;
+  padding:9px 16px;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.06em;color:var(--ink);
+  box-shadow:0 10px 22px -12px rgba(26,22,19,.28)}
+.sticker.mg{background:#fff}.sticker.wm,.sticker.gp,.sticker.sb{background:#fff;color:var(--ink)}
+
+/* motion */
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes floaty2{0%,100%{transform:translate(-196px,52px) rotate(-15deg)}50%{transform:translate(-196px,42px) rotate(-15deg)}}
+@keyframes floaty3{0%,100%{transform:translate(196px,52px) rotate(15deg)}50%{transform:translate(196px,42px) rotate(15deg)}}
+@keyframes pop{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.floaty{animation:floaty 5s ease-in-out infinite}.bob{animation:floaty 6s ease-in-out infinite}
+.bob2{animation:floaty 6.5s ease-in-out infinite}.wob{animation:floaty 5.5s ease-in-out infinite}
+.pop{animation:pop .7s cubic-bezier(.2,1,.3,1) both}
+/* kill arcade decorations */
+.fruit,.f1,.f2,.f3,.f4,.swirl,.swirl2,.swirl3,.scene-burst,.scene-glow,.spark,.scene-note,.kw{display:none !important}
+@media (prefers-reduced-motion:reduce){.floaty,.bob,.bob2,.wob,.pop{animation:none !important}}
+
+/* top marquee */
+.topbar{background:var(--ink);color:var(--cream);overflow:hidden;padding:11px 0}
+.topbar .marq-track{display:flex;white-space:nowrap;animation:marq 34s linear infinite;width:max-content}
+.topbar .mi{font-family:'Jost',sans-serif;font-weight:400;font-size:12px;letter-spacing:.18em;padding:0 22px;text-transform:uppercase}
+.topbar .mi i{color:var(--accent2);font-style:normal}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:78px}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.82}
+.nav-links a:hover{opacity:1;color:var(--accent)}
+.nav-links a.btn{opacity:1;color:#fff;letter-spacing:.14em}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(165deg,#FFF3E9 0%,#FDE8EC 46%,#EEF3FB 100%)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:36px;align-items:center;padding:64px 0 88px;position:relative;z-index:2}
+.hero h1{font-size:78px;font-weight:400;line-height:.98;color:var(--ink)}
+.hero .lede{margin-top:22px;font-size:16.5px;line-height:1.62;color:var(--muted);max-width:390px}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.hero-cta{display:flex;align-items:center;gap:16px;margin-top:30px;flex-wrap:wrap}
+.hero-rev{display:flex;align-items:center;gap:10px;margin-top:24px;font-size:13px;color:var(--muted)}
+.hero-rev .st{color:var(--accent2);letter-spacing:2px;font-size:15px}
+.hero-stage{position:relative;height:540px;display:grid;place-items:center}
+.hero-ring{position:absolute;width:min(700px,90%);aspect-ratio:1;left:50%;top:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none}
+.hero-ring svg{width:100%;height:100%;display:block}
+.hero-stage .hs{position:absolute;filter:drop-shadow(0 30px 42px rgba(70,30,20,.26))}
+.hs-c{height:474px;z-index:3;animation:floaty 6s ease-in-out infinite}
+.hs-l{height:392px;transform:translate(-196px,52px) rotate(-15deg);z-index:2;animation:floaty2 6.6s ease-in-out infinite}
+.hs-r{height:392px;transform:translate(196px,52px) rotate(15deg);z-index:2;animation:floaty3 6.3s ease-in-out infinite}
+.hero-stage .hand{position:absolute;z-index:5}
+.an-1{top:60px;left:20px;font-size:30px;color:var(--ink);transform:rotate(-6deg)}
+.an-2{bottom:74px;right:16px;font-size:30px;color:var(--accent);transform:rotate(4deg)}
+.hero-stage .arr{position:absolute;top:96px;left:120px;color:var(--accent);transform:rotate(8deg);z-index:5}
+.hero-stage .spk{position:absolute;top:40px;right:120px;color:var(--accent2);z-index:5}
+
+/* pack image */
+.pack{width:150px;flex:0 0 auto;aspect-ratio:210/700;position:relative;transition:transform .4s cubic-bezier(.2,1.2,.4,1)}
+.pack img{width:100%;height:100%;display:block;object-fit:contain;filter:drop-shadow(0 18px 26px rgba(0,0,0,.22))}
+.pack:hover{transform:translateY(-8px)}
+.pack-hero{width:200px}
+
+/* sections */
+.sec{padding:96px 0;position:relative}
+.sec-head{text-align:center;max-width:680px;margin:0 auto;position:relative}
+.sec-head h2{font-size:50px;font-weight:400;margin-top:14px}
+.sec-head p{margin-top:16px;font-size:17px;line-height:1.6;color:var(--muted)}
+
+/* benefit band */
+.bene{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.bene-in{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;padding:44px 0}
+.bcol{display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center}
+.bcol svg{width:34px;height:34px;stroke:var(--accent);stroke-width:1.5;fill:none}
+.bcol h3{font-family:'Jost',sans-serif;font-weight:500;font-size:15px;letter-spacing:.02em}
+
+/* lifestyle */
+.life{display:grid;grid-template-columns:1fr 1.04fr;gap:52px;align-items:center}
+.life h2{font-size:46px;margin-top:12px}
+.life p{margin-top:16px;font-size:16.5px;line-height:1.62;color:var(--muted);max-width:430px}
+.life-badges{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 26px}
+.life-photo{position:relative;height:500px;border-radius:26px;overflow:hidden;
+  background:linear-gradient(rgba(18,12,8,.10),rgba(18,12,8,.22)),url(photos/lifeguard.jpg) left center/cover;box-shadow:0 30px 60px -30px rgba(70,40,20,.4)}
+.life-photo .note{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px}
+.life-photo .note span{font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.06em;color:rgba(26,22,19,.6);
+  border:1.5px dashed rgba(26,22,19,.35);border-radius:100px;padding:10px 20px;background:rgba(255,255,255,.5)}
+.life-photo .hand{position:absolute;color:#fff;z-index:3;text-shadow:0 2px 12px rgba(0,0,0,.25)}
+.lp-1{top:34px;left:34px;font-size:34px;transform:rotate(-7deg)}
+.lp-2{bottom:56px;right:40px;font-size:32px;transform:rotate(5deg)}
+.life-photo .dood{position:absolute;color:#fff}
+.life-photo .d1{top:80px;left:180px;transform:rotate(12deg)}
+.life-photo .d2{bottom:120px;right:60px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:34px 30px;box-shadow:0 24px 50px -30px rgba(26,22,19,.3);position:relative}
+.step .sn{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;font-family:'Fraunces',serif;font-weight:500;font-size:22px;color:#fff}
+.step h3{font-size:26px;margin-top:20px}
+.step p{margin-top:10px;font-size:15px;line-height:1.6;color:var(--muted)}
+
+/* inside */
+.inside{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;margin-top:52px;align-items:center}
+.sf{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:30px 32px;box-shadow:0 24px 50px -30px rgba(26,22,19,.3)}
+.sf .sfh{font-family:'Jost',sans-serif;font-weight:500;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+.sf .sfs{font-size:13px;color:var(--muted);margin-top:2px}
+.sf table{width:100%;border-collapse:collapse;font-size:14.5px;margin-top:14px}
+.sf td{padding:10px 0;border-bottom:1px solid var(--line)}
+.sf td.v{text-align:right;font-family:'Jost',sans-serif;white-space:nowrap;padding-left:14px}
+.sf td.hd{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.sf td.sub{padding-left:16px;color:var(--muted)}
+.sf .ah{font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:20px 0 2px}
+.sf td .sub2{color:var(--muted);font-size:12px}
+.sf tr:first-child td{border-top:2px solid var(--ink)}
+.sf tr.hi td{color:var(--accent);font-weight:600}
+.sf .oi{font-size:12.5px;color:var(--muted);margin-top:14px;line-height:1.55}
+.ic h3{font-size:34px}
+.ic p{margin-top:14px;font-size:16px;line-height:1.6;color:var(--muted);max-width:440px}
+.badges{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+.badge{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px}
+.badge .bi{width:60px;height:60px;border-radius:50%;background:var(--paper);border:1px solid var(--line);display:grid;place-items:center;box-shadow:0 14px 26px -16px rgba(26,22,19,.35)}
+.badge svg{width:26px;height:26px;stroke:var(--accent);stroke-width:1.5;fill:none}
+.badge .bt{font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.04em}
+.cnote{font-size:11.5px;color:var(--muted);margin-top:18px}
+
+/* name band */
+.name{background:#FCEFF2;color:var(--ink);position:relative;overflow:hidden}
+.name .eyebrow{color:var(--accent)}
+.name h2{font-size:50px}
+.name .lead{margin-top:16px;font-size:17px;line-height:1.6;color:var(--muted);max-width:560px}
+.meanings{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.mean{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:28px 26px;box-shadow:0 24px 50px -32px rgba(26,22,19,.3)}
+.mean .mk{font-family:'Jost',sans-serif;font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.mean h3{font-size:23px;margin-top:12px}
+.mean p{margin-top:10px;font-size:14px;line-height:1.6;color:var(--muted)}
+.name-close{margin-top:44px;font-family:'Fraunces',serif;font-weight:400;font-size:30px;line-height:1.3;max-width:820px;position:relative;z-index:2}
+.name-close b{color:var(--accent);font-weight:400;font-style:italic}
+
+/* reviews */
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:52px}
+.rev{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:30px 28px;display:flex;flex-direction:column;gap:16px;
+  box-shadow:0 24px 50px -30px rgba(26,22,19,.3);transition:transform .3s ease}
+.rev:hover{transform:translateY(-6px)}
+.rev .st{display:flex;gap:3px}.rev .st svg{width:16px;height:16px;fill:var(--accent2)}
+.rev q{font-family:'Fraunces',serif;font-weight:400;font-size:20px;line-height:1.4;quotes:none}
+.rev .who{font-family:'Jost',sans-serif;font-weight:500;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:auto}
+
+/* big cta */
+.cta{position:relative;overflow:hidden;min-height:560px;display:grid;align-items:center;background:linear-gradient(rgba(11,15,23,.46),rgba(11,15,23,.5)),url(photos/flag-tower.jpg) center 56%/cover;color:#fff}
+.cta-in h2,.cta-in p,.cta-note{text-shadow:0 2px 26px rgba(0,0,0,.5)}
+.cta-in{position:relative;z-index:2;text-align:center;padding:130px 0}
+.cta-in h2{font-size:60px;font-weight:400;color:#fff}
+.cta-in p{margin:18px auto 0;font-size:18px;max-width:500px;color:#fff;opacity:.95}
+.cta-note{margin-top:16px;font-family:'Caveat',cursive;font-weight:600;font-size:22px;color:#fff}
+
+/* Gold Coast photo band */
+.gcband{position:relative;min-height:460px;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(rgba(15,20,30,.42),rgba(15,20,30,.52)),url(photos/skyline.jpg) center 42%/cover}
+.gcband-in{position:relative;z-index:2;text-align:center;max-width:680px;padding:80px 24px}
+.gcband h2{font-size:48px;font-weight:400;color:#fff;margin-top:14px}
+.gcband p{margin-top:16px;font-size:17px;line-height:1.6;color:#fff;opacity:.92}
+
+/* faq */
+.faq{max-width:860px;margin:52px auto 0}
+.faq-row{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:24px 28px;margin-bottom:14px;box-shadow:0 18px 40px -28px rgba(26,22,19,.3)}
+.faq-q{font-family:'Fraunces',serif;font-weight:500;font-size:20px}
+.faq-a{font-size:15px;line-height:1.65;color:var(--muted);margin-top:8px}
+
+/* footer */
+.foot{background:#241C17;color:var(--cream)}
+.foot-in{padding:70px 0 40px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+.foot .tag{font-family:'Fraunces',serif;font-weight:400;font-size:19px;margin-top:20px;color:#e8ddca;max-width:280px;line-height:1.35}
+.foot h4{font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent2);margin:0 0 16px;font-weight:500}
+.foot ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:11px}
+.foot ul a{font-size:14.5px;color:#e8ddca}.foot ul a:hover{color:#fff}
+.socials{display:flex;gap:12px;margin-top:22px}
+.socials a{width:40px;height:40px;border:1px solid rgba(247,241,230,.3);border-radius:50%;display:grid;place-items:center}
+.socials svg{width:18px;height:18px;stroke:var(--cream);stroke-width:1.6;fill:none}
+.foot-bottom{display:flex;justify-content:space-between;margin-top:56px;padding-top:24px;border-top:1px solid rgba(247,241,230,.16);
+  font-family:'Jost',sans-serif;font-size:12px;color:#b9ab97;letter-spacing:.04em}
+
+/* section backgrounds — light + vibrant tints */
+.bg-blue{background:#EEF4FB}.bg-pink{background:#FDEEF0}.bg-yellow{background:#FFF3F4}
+.bg-mint{background:#EBF7F0}.bg-purple{background:#F1EEFB}.bg-coral{background:#FDEFE7}
+.bg-sky{background:#EEF4FB}.bg-white{background:var(--paper)}.bg-cream{background:#FFFFFF}
+.bg-ink{background:#241C17;color:var(--cream)}
+.bg-ink .sec-head p{color:#d9ccb8}
+.sec .wrap,.bene .wrap{position:relative;z-index:2}
+
+/* decorative */
+.dotgrid{display:none}
+.glow{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;z-index:0;opacity:.5}
+.grain::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="140" height="140"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="140" height="140" filter="url(%23n)"/></svg>')}
+
+/* photo slot */
+.photo{position:relative;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(70,40,20,.4);
+  background:linear-gradient(140deg,#FFE1C6,#FFC7D2 55%,#CFE0FA)}
+.photo .plabel{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px}
+.photo .plabel span{font-family:'Jost',sans-serif;font-weight:500;color:rgba(26,22,19,.6);font-size:13px;border:1.5px dashed rgba(26,22,19,.35);
+  border-radius:100px;padding:10px 20px;background:rgba(255,255,255,.5)}
+
+.scrollcue{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);font-family:'Jost',sans-serif;font-weight:500;font-size:11px;
+  letter-spacing:.3em;color:var(--muted);z-index:3;animation:floaty 2.8s ease-in-out infinite}
+
+/* subhero (shared) */
+.subhero{position:relative;overflow:hidden;text-align:center;padding:74px 0 44px}
+.subhero h1{font-size:64px;font-weight:400}
+.subhero p{margin:16px auto 0;font-size:18px;max-width:560px;color:var(--muted)}
+.subhero .eyebrow{color:var(--accent)}
+.subhero .filters{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.scene{display:grid;place-items:center;border-radius:24px;background:linear-gradient(140deg,#FFE1C6,#FFC7D2 55%,#CFE0FA)}
+
+/* range */
+.line-block{margin-top:52px}
+.line-tag{text-align:center;margin-bottom:38px}
+.line-tag h3{font-family:'Fraunces',serif;font-weight:400;font-size:40px;line-height:1}
+.line-tag .sub{display:block;font-family:'Jost',sans-serif;font-weight:500;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-top:11px}
+.line-tag .rule{width:46px;height:2px;background:var(--accent);margin:16px auto 0;border-radius:2px}
+.packs-row{display:flex;gap:34px;justify-content:center;flex-wrap:wrap}
+.pack-cell{display:flex;flex-direction:column;align-items:center;gap:12px}
+.pack-cell .mn{font-family:'Fraunces',serif;font-weight:500;font-size:19px}
+.pack-cell .btn{margin-top:2px}
+
+/* reveals */
+.reveal{opacity:1}
+@media (prefers-reduced-motion:no-preference){
+  html.rvl .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  html.rvl .reveal.in{opacity:1;transform:none}
+}
+</style>
+<style>
+.nav-links a.on{color:var(--accent)}
+html{scroll-behavior:smooth}
+img,svg{max-width:100%}
+@media (max-width:1000px){
+  .wrap{padding:0 30px}
+  .hero-grid{grid-template-columns:1fr;gap:12px;padding:56px 0 70px}
+  .hero h1{font-size:54px}
+  .hero-stage{height:420px}
+  .kw{font-size:140px}
+  .bene-in{grid-template-columns:repeat(2,1fr);gap:30px}
+  .sec-head h2{font-size:38px}
+  .steps,.rev-grid,.rev-grid6,.grid3,.stats3,.ev,.inside,.pdp,.con,.meanings,.foot-top,.principle,.loop{grid-template-columns:1fr}
+  .benefits,.badges,.facts{grid-template-columns:repeat(2,1fr)}
+  .cta-card{grid-template-columns:1fr}
+  .cta-art{min-height:300px}
+  .faq-row{grid-template-columns:1fr;gap:6px}
+  .sec{padding:72px 0}
+}
+@media (max-width:640px){
+  .wrap{padding:0 20px}
+  .nav-links a:not(.btn){display:none}
+  .nav-links{gap:14px}
+  .hero h1{font-size:38px}
+  .sec-head h2{font-size:28px}
+  .packs-row{flex-direction:column;align-items:center}
+  .benefits,.badges,.facts,.bene-in{grid-template-columns:1fr}
+  .cta-in h2{font-size:40px}
+  .pack{width:210px}
+}
+</style>
+</head>
+<body>
+
+
+<div>
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="marq-track">
+      <span class="mi">RIP · POUR · ENJOY<i> ✦ </i></span><span class="mi">5G CREATINE IN EVERY STICK<i> ✦ </i></span><span class="mi">NO SCOOP · NO SHAKER<i> ✦ </i></span><span class="mi">9 FLAVOURS<i> ✦ </i></span><span class="mi">FREE SHIPPING OVER [AMOUNT]<i> ✦ </i></span>
+      <span class="mi">RIP · POUR · ENJOY<i> ✦ </i></span><span class="mi">5G CREATINE IN EVERY STICK<i> ✦ </i></span><span class="mi">NO SCOOP · NO SHAKER<i> ✦ </i></span><span class="mi">9 FLAVOURS<i> ✦ </i></span><span class="mi">FREE SHIPPING OVER [AMOUNT]<i> ✦ </i></span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="nav">
+    <div class="wrap nav-in">
+      <a href="index.html" class="mark m50"><span>TORUS</span></a>
+      <div class="nav-links">
+        <a href="shop.html">Shop</a>
+        <a href="name.html">The Name</a>
+        <a href="science.html">Science</a>
+        <a href="reviews.html">Reviews</a>
+        <a href="reviews.html#faq">FAQ</a>
+        <a href="shop.html" class="btn sm">Shop now</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero" id="top">
+    <div class="hero-ring"><svg viewBox="0 0 200 200"><circle cx="100" cy="100" r="92" fill="none" stroke="#E886A0" stroke-width="5" stroke-opacity=".5"/><text x="100" y="108" transform="translate(3.5,0)" text-anchor="middle" dominant-baseline="middle" font-family="Jost,Arial,sans-serif" font-weight="500" font-size="42" letter-spacing="7" fill="#E886A0" fill-opacity=".34" stroke="#E886A0" stroke-opacity=".34" stroke-width="1.1" paint-order="stroke">TORUS</text></svg></div>
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow pop" style="animation-delay:.02s">Creatine, made easy</div>
+        <h1 class="pop" style="animation-delay:.08s">Five grams<br>a day, <em>done.</em></h1>
+        <p class="lede pop" style="animation-delay:.16s">One stick a day — 5g of creatine, plus collagen and daily vitamins in our all-in-1 line. Fifteen to a pack, nine flavours that make the habit the easy part.</p>
+        <div class="hero-cta pop" style="animation-delay:.26s">
+          <a href="shop.html" class="btn">Shop the range</a>
+          <a href="name.html" class="btn ghost">Why "Torus"?</a>
+        </div>
+        <div class="hero-rev pop" style="animation-delay:.34s"><span class="st">★★★★★</span><span>[4.9] from [1,200+] happy humans</span></div>
+      </div>
+      <div class="hero-stage">
+        <img class="hs hs-l" src="sticks/grape.png" alt="TORUS Grape">
+        <img class="hs hs-r" src="sticks/tropical-mango.png" alt="TORUS Tropical Mango">
+        <img class="hs hs-c" src="sticks/strawberry.png" alt="TORUS Strawberry">
+        <span class="spk"><svg class="dood" width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M13 2v8M13 16v8M2 13h8M16 13h8"/></svg></span>
+        <span class="arr"><svg class="dood" width="90" height="60" viewBox="0 0 90 60" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M4 8c26 4 44 18 54 40"/><path d="M44 46l16 4 3-16"/></svg></span>
+        <span class="hand an-1">small stick.<br>big benefits.</span>
+        <span class="hand an-2">same energy,<br>just better <svg class="dood" width="30" height="28" viewBox="0 0 30 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 25C6 18 3 12 6 7c2-3 6-3 9 1 3-4 7-4 9-1 3 5 0 11-9 18z"/></svg></span>
+      </div>
+    </div>
+    <div class="scrollcue">SCROLL ▾</div>
+  </div>
+
+  <!-- BENEFIT BAND -->
+  <div class="bene">
+    <div class="wrap bene-in">
+      <div class="bcol"><svg viewBox="0 0 24 24"><path d="M12 3s7 3 7 8a7 7 0 0 1-14 0c0-2 1-3 1-3s1 2 2 2c0-3 2-5 4-7z"/></svg><h3>Build lean muscle</h3></div>
+      <div class="bcol"><svg viewBox="0 0 24 24"><path d="M9 3a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3 3 0 0 0 1 5 3 3 0 0 0 5 1V4a2 2 0 0 0-1-1z"/><path d="M15 3a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3 3 0 0 1-1 5 3 3 0 0 1-5 1"/></svg><h3>Support brain power</h3></div>
+      <div class="bcol"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><h3>Everyday energy</h3></div>
+      <div class="bcol"><svg viewBox="0 0 24 24"><path d="M4 7l8-4 8 4-8 4z"/><path d="M8 10v4c0 2 2 3 4 3s4-1 4-3v-4"/><path d="M20 7v6"/></svg><h3>Clinically researched</h3></div>
+    </div>
+  </div>
+
+  <!-- LIFESTYLE -->
+  <section class="sec bg-cream">
+    <div class="wrap life">
+      <div class="life-copy">
+        <div class="eyebrow">Straight into your day</div>
+        <h2>Built to actually <em>keep up</em> with.</h2>
+        <p>A stick that lives in your gym bag, your desk drawer, your carry-on. No scoop, no shaker, no mess — just tear, pour and get on with it. The kind of habit that actually sticks.</p>
+        <div class="life-badges">
+          <span class="sticker">No water needed</span>
+          <span class="sticker">Rip · pour · enjoy</span>
+          <span class="sticker">Travels anywhere</span>
+        </div>
+        <a href="shop.html" class="btn">Shop the range</a>
+      </div>
+      <div class="life-photo">
+        <span class="hand lp-1">good stuff! <svg class="dood" width="30" height="28" viewBox="0 0 30 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 25C6 18 3 12 6 7c2-3 6-3 9 1 3-4 7-4 9-1 3 5 0 11-9 18z"/></svg></span>
+        <span class="hand lp-2">small sachet…<br>big vibes</span>
+        <span class="dood d1"><svg class="dood" width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M13 2v8M13 16v8M2 13h8M16 13h8"/></svg></span>
+        <span class="dood d2"><svg class="dood" width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="15" cy="15" r="12.5"/><path d="M10 17c1.5 2.5 8.5 2.5 10 0"/><circle cx="11" cy="12" r=".2"/><circle cx="19" cy="12" r=".2"/></svg></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANGE -->
+  <section id="range" class="sec bg-yellow">
+    <div class="dotgrid" style="color:#141210"></div>
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">The range</div>
+        <h2>Nine flavours. One clean habit.</h2>
+        <p>Same 5g of creatine in every single stick — the only thing that changes is how good it tastes.</p>
+      </div>
+
+      <div class="line-block">
+        <div class="line-tag"><h3>All-in-1</h3><span class="sub">Coffee-led everyday</span><div class="rule"></div></div>
+        <div class="packs-row">
+          
+            <div class="pack-cell">
+              <div class="pack wob"><img src="sticks/cold-brew.png" alt="TORUS Cold Brew"></div>
+              <div class="mn">Cold Brew</div>
+              <a href="shop.html" class="btn sm wt">Add · [PRICE]</a>
+            </div>
+          
+            <div class="pack-cell">
+              <div class="pack wob"><img src="sticks/tropical-mango.png" alt="TORUS Tropical Mango"></div>
+              <div class="mn">Tropical Mango</div>
+              <a href="shop.html" class="btn sm wt">Add · [PRICE]</a>
+            </div>
+          
+            <div class="pack-cell">
+              <div class="pack wob"><img src="sticks/strawberry.png" alt="TORUS Strawberry"></div>
+              <div class="mn">Strawberry</div>
+              <a href="shop.html" class="btn sm wt">Add · [PRICE]</a>
+            </div>
+          
+        </div>
+      </div>
+
+      <div class="line-block">
+        <div class="line-tag"><h3>Fizz</h3><span class="sub">Bright &amp; carbonated</span><div class="rule"></div></div>
+        <div class="packs-row">
+          
+            <div class="pack-cell">
+              <div class="pack wob"><img src="sticks/passionfruit-crush.png" alt="TORUS Passionfruit Crush"></div>
+              <div class="mn">Passionfruit Crush</div>
+              <a href="shop.html" class="btn sm wt">Add · [PRICE]</a>
+            </div>
+          
+            <div class="pack-cell">
+              <div class="pack wob"><img src="sticks/grape.png" alt="TORUS Grape"></div>
+              <div class="mn">Grape</div>
+              <a href="shop.html" class="btn sm wt">Add · [PRICE]</a>
+            </div>
+          
+            <div class="pack-cell">
+              <div class="pack wob"><img src="sticks/cola.png" alt="TORUS Cola"></div>
+              <div class="mn">Cola</div>
+              <a href="shop.html" class="btn sm wt">Add · [PRICE]</a>
+            </div>
+          
+        </div>
+      </div>
+
+      <div class="line-block">
+        <div class="line-tag"><h3>Women's</h3><span class="sub">Pink &amp; coral</span><div class="rule"></div></div>
+        <div class="packs-row">
+          
+            <div class="pack-cell">
+              <div class="pack wob"><img src="sticks/raspberry-lemonade.png" alt="TORUS Raspberry Lemonade"></div>
+              <div class="mn">Raspberry Lemonade</div>
+              <a href="shop.html" class="btn sm wt">Add · [PRICE]</a>
+            </div>
+          
+            <div class="pack-cell">
+              <div class="pack wob"><img src="sticks/peach-nectar.png" alt="TORUS Peach Nectar"></div>
+              <div class="mn">Peach Nectar</div>
+              <a href="shop.html" class="btn sm wt">Add · [PRICE]</a>
+            </div>
+          
+            <div class="pack-cell">
+              <div class="pack wob"><img src="sticks/watermelon.png" alt="TORUS Watermelon"></div>
+              <div class="mn">Watermelon</div>
+              <a href="shop.html" class="btn sm wt">Add · [PRICE]</a>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="sec bg-pink">
+    <div class="wrap">
+      <div class="sec-head"><div class="eyebrow">So easy</div><h2>Rip. Pour. Enjoy.</h2></div>
+      <div class="steps">
+        <div class="step"><div class="sn" style="background:var(--sb)">1</div><h3>Rip</h3><p>Tear open a single stick. Pocket-sized, so it goes wherever you do — gym bag, desk, carry-on.</p></div>
+        <div class="step"><div class="sn" style="background:var(--mg)">2</div><h3>Pour</h3><p>Into water, coffee or your favourite drink — dissolves fast, no clumps, no shaker to wash. <em>[Straight-to-mouth format? We can say "no water needed" instead.]</em></p></div>
+        <div class="step"><div class="sn" style="background:var(--gp)">3</div><h3>Enjoy</h3><p>That's the full 5g done. Same time each day is all creatine asks — the loop you never break.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIDE -->
+  <section class="sec bg-sky">
+    <div class="wrap">
+      <div class="sec-head"><div class="eyebrow">What's inside</div><h2>5g of creatine — <em>plus what makes it work.</em></h2></div>
+      <div class="inside">
+        <div class="sf">
+          <div class="sfh">Nutrition Information</div>
+          <div class="sfs">ALL-IN-1 shown · Servings per pack: [15] · Serving size: [~14 g] (1 stick)</div>
+          <table>
+            <tr><td></td><td class="v hd">Per serve</td><td class="v hd">Per 100 g</td></tr>
+            <tr><td>Energy</td><td class="v">[X kJ]</td><td class="v">[X kJ]</td></tr>
+            <tr><td>Protein <span class="sub2">(collagen)</span></td><td class="v">[~5 g]</td><td class="v">[X g]</td></tr>
+            <tr><td>Fat, total</td><td class="v">0 g</td><td class="v">0 g</td></tr>
+            <tr><td class="sub">– saturated</td><td class="v">0 g</td><td class="v">0 g</td></tr>
+            <tr><td>Carbohydrate</td><td class="v">[X g]</td><td class="v">[X g]</td></tr>
+            <tr><td class="sub">– sugars</td><td class="v">[X g]</td><td class="v">[X g]</td></tr>
+            <tr><td>Sodium</td><td class="v">[~200 mg]</td><td class="v">[X mg]</td></tr>
+          </table>
+          <div class="ah">Active ingredients — per stick</div>
+          <table>
+            <tr class="hi"><td>Creatine monohydrate</td><td class="v">5 g</td></tr>
+            <tr class="hi"><td>Marine collagen peptides</td><td class="v">5 g</td></tr>
+            <tr><td>Magnesium</td><td class="v">[100 mg]</td></tr>
+            <tr><td>Potassium</td><td class="v">[230 mg]</td></tr>
+            <tr><td>Vitamins D3, K2, B12</td><td class="v">[per label]</td></tr>
+          </table>
+          <div class="oi"><strong>Ingredients:</strong> [list yours in descending order by weight]. Formulated Supplementary Sports Food. Contains fish (marine collagen). Not suitable for children under 15 years of age or pregnant women; should only be used under medical or dietetic supervision. Sample panel — Fizz and Women's lines differ; confirm all values against your finished formulation and AU (FSANZ) requirements.</div>
+        </div>
+        <div class="ic">
+          <h3>Creatine, and the crew that backs it up.</h3>
+          <p>Every stick leads with a clinical 5g of creatine monohydrate. The <strong>All-in-1</strong> line adds marine collagen, magnesium, potassium and daily vitamins; the <strong>Women's</strong> line layers in hyaluronic acid, biotin and vitamin C. Prefer it simple? The <strong>Fizz</strong> line is a straight, sherbet-style creatine hit — no collagen, taken dry.</p>
+          <div class="badges">
+            <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><path d="M11 20C6 20 4 15 4 11c5 0 7 3 7 7"/><path d="M12 20c0-7 4-12 8-13 0 6-2 13-8 13z"/></svg></div><div class="bt">No synthetic colours</div></div>
+            <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><path d="M8 3h6l-1 4c1 1 2 3 2 6a4 4 0 0 1-8 0c0-2 0-4 1-6z"/><path d="M4 4l16 16"/></svg></div><div class="bt">Dairy free</div></div>
+            <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><path d="M12 3v10"/><path d="M12 7c-2-2-4-2-5-1 1 2 3 3 5 3M12 7c2-2 4-2 5-1-1 2-3 3-5 3"/><path d="M4 4l16 16"/></svg></div><div class="bt">Gluten free</div></div>
+            <div class="badge"><div class="bi"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div><div class="bt">Third-party tested</div></div>
+          </div>
+          <div class="cnote">[Confirm dietary and allergen claims — these are placeholders. Fizz line is collagen-free / suitable for vegans.]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAME BAND -->
+  <section id="name" class="name sec">
+    <div class="swirl2"></div>
+    <div class="wrap">
+      <div class="eyebrow">The name</div>
+      <h2>A <span class="brand-word">TORUS</span> is a ring.</h2>
+      <p class="lead">A closed loop, no beginning and no end. The name and the mark are the same object — three meanings, all true at once.</p>
+      <div class="meanings">
+        <div class="mean"><div class="mk">The shape</div><h3>A closed loop</h3><p>The ring around the wordmark is a picture of what the word means — no beginning, no end.</p></div>
+        <div class="mean"><div class="mk">The muscle</div><h3>A swell under tension</h3><p>In Latin, <em>torus</em> is the swell of a muscle under load — the way Ovid and Virgil used it.</p></div>
+        <div class="mean"><div class="mk">The loop</div><h3>A cycle you don't break</h3><p>Creatine recycles ADP into ATP — a closed loop that only works through daily repetition.</p></div>
+      </div>
+      <div class="name-close">A torus is a closed loop — <b>and creatine only works if you never break it.</b></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="sec bg-mint">
+    <div class="wrap">
+      <div class="sec-head"><div class="eyebrow">Sample reviews · swap in your own</div><h2>People kind of love it.</h2></div>
+      <div class="rev-grid">
+        <div class="rev"><div class="st"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div><q>Cold Brew straight into my morning coffee and I forget it's a supplement. That's the whole point.</q><div class="who">— [Reviewer], verified buyer</div></div>
+        <div class="rev"><div class="st"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div><q>No loading, no chalky shaker to wash. A stick a day and I'm finally consistent for once.</q><div class="who">— [Reviewer], verified buyer</div></div>
+        <div class="rev"><div class="st"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg></div><q>Watermelon is dangerously good. Half the box gone in a week — worth the reorder.</q><div class="who">— [Reviewer], verified buyer</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG CTA -->
+  <div class="cta">
+    <div class="swirl3"></div>
+    <div class="wrap cta-in">
+      <h2>Start the loop.</h2>
+      <p>Fifteen sticks, your pick of nine flavours. Subscribe and never run out.</p>
+      <div style="margin-top:30px"><a href="shop.html" class="btn ink">Build your box · [PRICE]</a></div>
+      <div class="cta-note">[PRICE] per pack · [PRICE] per stick · pause or cancel any time</div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section id="faq" class="sec bg-sky">
+    <div class="wrap">
+      <div class="sec-head"><div class="eyebrow">Good to know</div><h2>Questions, answered.</h2></div>
+      <div class="faq">
+        <div class="faq-row"><div class="faq-q">What exactly is creatine?</div><div class="faq-a">A compound your body already makes and stores in muscle for short-burst energy. Supplementing tops those stores up. TORUS uses creatine monohydrate — the gold-standard, best-studied form.</div></div>
+        <div class="faq-row"><div class="faq-q">Do I need a loading phase?</div><div class="faq-a">Nope. A steady 5g a day gets you there within a few weeks, no loading required — which is exactly how TORUS is built.</div></div>
+        <div class="faq-row"><div class="faq-q">When should I take it?</div><div class="faq-a">Whenever you'll remember. Daily consistency beats timing, so hook it to something you already do — like your morning coffee.</div></div>
+        <div class="faq-row"><div class="faq-q">Is it only for the gym?</div><div class="faq-a">No — the evidence covers strength and recovery, and research into focus and mental stamina is growing fast.</div></div>
+        <div class="faq-row"><div class="faq-q">Is it vegan and sugar-free?</div><div class="faq-a">The <strong>Fizz</strong> line is collagen-free and suitable for vegans. The <strong>All-in-1</strong> and <strong>Women's</strong> lines contain marine collagen (fish), so they're not vegan. All nine are sweetened with monk fruit — no added sugar. [Confirm final formulation and allergen details.]</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOLD COAST BAND -->
+  <section class="gcband">
+    <div class="gcband-in">
+      <div class="eyebrow" style="color:#fff;opacity:.9">Made on the Gold Coast</div>
+      <h2>Built by the beach,<br>for the daily grind.</h2>
+      <p>Formulated and packed on Australia's Gold Coast — real creatine for real training, wherever your day takes you.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="wrap foot-in">
+      <div class="foot-top">
+        <div>
+          <div class="mark m50" style="color:var(--warm)"><span>TORUS</span></div>
+          <div class="tag">A closed loop — and creatine only works if you never break it.</div>
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="var(--warm)" stroke="none"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M9 3v11.5a3.5 3.5 0 1 1-3-3.46"/><path d="M9 3c.5 3 2.5 4.5 5 4.7"/></svg></a>
+          </div>
+        </div>
+        <div><h4>Shop</h4><ul><li><a href="shop.html">All-in-1</a></li><li><a href="shop.html">Fizz</a></li><li><a href="shop.html">Women's</a></li><li><a href="#">Build a box</a></li></ul></div>
+        <div><h4>Learn</h4><ul><li><a href="name.html">The name</a></li><li><a href="science.html">The science</a></li><li><a href="reviews.html#faq">FAQ</a></li><li><a href="reviews.html">Reviews</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a href="#">About</a></li><li><a href="#">Contact</a></li><li><a href="#">Wholesale</a></li><li><a href="#">Stockists</a></li></ul></div>
+      </div>
+      <div class="foot-bottom"><div>© 2026 TORUS. All rights reserved.</div><div>Creatine monohydrate · 5g per stick · [Add legal / dietary disclaimer]</div></div>
+    </div>
+  </footer>
+</div>
+
+<script>
+function setupReveals(){try{if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;document.documentElement.classList.add('rvl');var sel='.sec-head,.step,.rev,.card,.pack-cell,.bcol,.statcard,.faq-row,.badge,.mean,.fact,.sf,.ic,.buy,.cta-in,.photo,.stat,.ben,.line-head,.pdp-media';var els=[].slice.call(document.querySelectorAll(sel));els.forEach(function(el){var p=el.parentElement;var i=p?[].indexOf.call(p.children,el):0;el.style.transitionDelay=Math.min(i*0.05,0.3)+'s';el.classList.add('reveal');});if(!('IntersectionObserver' in window)){els.forEach(function(el){el.classList.add('in');});return;}var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var t=e.target;t.classList.add('in');io.unobserve(t);setTimeout(function(){t.style.transitionDelay='';},900);}});},{threshold:0.1,rootMargin:'0px 0px -6% 0px'});els.forEach(function(el){io.observe(el);});}catch(err){}}
+
+document.addEventListener('DOMContentLoaded',function(){ setupReveals(); if(typeof heroInit==='function') heroInit(); });
+</script>
+</body>
+</html>

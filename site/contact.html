@@ -10,7 +10,7 @@
   --ink:#1A1613; --cream:#FBF3EF; --paper:#FFFFFF; --muted:#6C6353; --soft:#EFE7D9;
   --line:rgba(26,22,19,.10); --accent:#E2482F; --accent2:#F2A20C;
   --cb:#5E4230; --mg:#ED9A0C; --sb:#C8253A; --pf:#E2620F; --gp:#55348F;
-  --co:#3E2214; --rl:#BE335F; --pn:#F0824E; --wm:#ED4A60;
+  --co:#2E9BD8; --rl:#BE335F; --pn:#F0824E; --wm:#ED4A60;
   --stone:#8C8378; --warm:#F7F1E6; --blue:#4A90C2; --sky:#EEF4FB; --pink:#E36B8A;
   --yellow:#F2A20C; --mint:#3FB58A; --purple:#7A5BD8; --coral:#E2482F;
 }
@@ -125,7 +125,7 @@ p{margin:0}
 .life p{margin-top:16px;font-size:16.5px;line-height:1.62;color:var(--muted);max-width:430px}
 .life-badges{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 26px}
 .life-photo{position:relative;height:500px;border-radius:26px;overflow:hidden;
-  background:linear-gradient(150deg,#FFE1C6,#FFC7D2 55%,#CFE0FA);box-shadow:0 30px 60px -30px rgba(70,40,20,.4)}
+  background:linear-gradient(rgba(18,12,8,.10),rgba(18,12,8,.22)),url(photos/lifeguard.jpg) left center/cover;box-shadow:0 30px 60px -30px rgba(70,40,20,.4)}
 .life-photo .note{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:24px}
 .life-photo .note span{font-family:'Jost',sans-serif;font-weight:500;font-size:12.5px;letter-spacing:.06em;color:rgba(26,22,19,.6);
   border:1.5px dashed rgba(26,22,19,.35);border-radius:100px;padding:10px 20px;background:rgba(255,255,255,.5)}
@@ -188,11 +188,18 @@ p{margin:0}
 .rev .who{font-family:'Jost',sans-serif;font-weight:500;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:auto}
 
 /* big cta */
-.cta{position:relative;overflow:hidden;background:linear-gradient(135deg,#E2482F,#F2842C);color:#fff}
+.cta{position:relative;overflow:hidden;background:linear-gradient(rgba(226,72,47,.50),rgba(178,42,18,.62)),url(photos/flag-tower.jpg) center 64%/cover;color:#fff}
 .cta-in{position:relative;z-index:2;text-align:center;padding:96px 0}
 .cta-in h2{font-size:60px;font-weight:400;color:#fff}
 .cta-in p{margin:18px auto 0;font-size:18px;max-width:500px;color:#fff;opacity:.95}
 .cta-note{margin-top:16px;font-family:'Caveat',cursive;font-weight:600;font-size:22px;color:#fff}
+
+/* Gold Coast photo band */
+.gcband{position:relative;min-height:460px;display:grid;place-items:center;color:#fff;
+  background:linear-gradient(rgba(15,20,30,.42),rgba(15,20,30,.52)),url(photos/skyline.jpg) center 42%/cover}
+.gcband-in{position:relative;z-index:2;text-align:center;max-width:680px;padding:80px 24px}
+.gcband h2{font-size:48px;font-weight:400;color:#fff;margin-top:14px}
+.gcband p{margin-top:16px;font-size:17px;line-height:1.6;color:#fff;opacity:.92}
 
 /* faq */
 .faq{max-width:860px;margin:52px auto 0}
@@ -273,6 +280,9 @@ p{margin:0}
     .form label{display:block;font-family:'Jost';font-weight:600;font-size:13px;margin:16px 0 6px}
     .form input,.form textarea{width:100%;border:1px solid var(--line);border-radius:12px;padding:13px 14px;font-family:'Inter';font-weight:600;font-size:15px;background:var(--warm)}
     .form textarea{min-height:120px;resize:vertical}
+    .jeep-hero{position:relative;overflow:hidden;text-align:center;
+      background:linear-gradient(rgba(12,14,20,.52),rgba(12,14,20,.62)),url(photos/jeep.jpg) center 42%/cover}
+    .jeep-hero h1,.jeep-hero p,.jeep-hero .eyebrow{position:relative;z-index:2}
   </style>
 <style>
 .nav-links a.on{color:var(--accent)}
@@ -318,11 +328,11 @@ img,svg{max-width:100%}
     <a href="index.html" class="mark m50"><span>TORUS</span></a>
     <div class="nav-links"><a href="shop.html">Shop</a><a href="name.html">The Name</a><a href="science.html">Science</a><a href="reviews.html">Reviews</a><a href="reviews.html#faq">FAQ</a><a href="shop.html" class="btn sm">Shop now</a></div>
   </div></div>
-<div class="subhero bg-mint" style="padding-bottom:44px"><div class="dotgrid"></div><div class="glow" style="width:400px;height:400px;background:#B9F0DC;opacity:.16;top:-130px;right:-70px"></div>
+<div class="subhero jeep-hero" style="padding:100px 0 88px">
   <div class="wrap">
-    <div class="eyebrow">Say hello</div>
-    <h1>Let's talk.</h1>
-    <p>Questions about a flavour, an order, wholesale or press? We're quick to reply — usually within [one working day].</p>
+    <div class="eyebrow" style="color:#fff;opacity:.9">Say hello</div>
+    <h1 style="color:#fff">Let's talk.</h1>
+    <p style="color:#fff;opacity:.92">Questions about a flavour, an order, wholesale or press? We're quick to reply — usually within [one working day].</p>
   </div>
 </div>
 <section class="sec" style="padding-top:40px">
